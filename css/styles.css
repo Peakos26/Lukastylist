@@ -1,0 +1,245 @@
+/* Design System Luka - Paleta Camel/Creme */
+:root {
+  /* Cores principais */
+  --cream: #FAF7F2;
+  --sand: #F1EADF;
+  --ivory: #FFFFFF;
+  
+  /* Tons camel */
+  --camel: #B08D57;
+  --camel-dark: #8A6D3F;
+  --camel-soft: #E7D8C2;
+  
+  /* Neutros */
+  --charcoal: #23201C;
+  --ink: #3A352E;
+  --muted: #8B8378;
+  --line: #E7E0D5;
+  
+  /* Cores de estado */
+  --success: #5B8C6E;
+  --danger: #C0654E;
+  --info: #6E7FA3;
+  --gold: #C7A867;
+  
+  /* Border radius */
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-lg: 24px;
+  
+  /* Tipografia */
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+/* Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--cream);
+  color: var(--charcoal);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Tipografia */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--charcoal);
+  line-height: 1.2;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+p {
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+/* Links */
+a {
+  color: var(--camel);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--camel-dark);
+}
+
+/* Botões */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--camel);
+  color: var(--ivory);
+}
+
+.btn-primary:hover {
+  background: var(--camel-dark);
+}
+
+.btn-secondary {
+  background: var(--sand);
+  color: var(--charcoal);
+}
+
+.btn-secondary:hover {
+  background: var(--camel-soft);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--camel);
+  color: var(--camel);
+}
+
+.btn-outline:hover {
+  background: var(--camel);
+  color: var(--ivory);
+}
+
+/* Cards */
+.card {
+  background: var(--ivory);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  border: 1px solid var(--line);
+}
+
+/* Inputs */
+input, textarea, select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  background: var(--ivory);
+  color: var(--charcoal);
+  transition: border-color 0.2s;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--camel);
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.badge-success { background: #E8F5E9; color: var(--success); }
+.badge-danger { background: #FFEBEE; color: var(--danger); }
+.badge-info { background: #E3F2FD; color: var(--info); }
+.badge-gold { background: #FFF8E1; color: var(--gold); }
+
+/* Ícones Lucide */
+i[data-lucide] {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+/* Layout grid */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* Flex utilities */
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.flex-between {
+  justify-content: space-between;
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.gap-2 { gap: 0.5rem; }
+.gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; }
+
+/* Spacing */
+.mt-2 { margin-top: 0.5rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-6 { margin-top: 1.5rem; }
+.mt-8 { margin-top: 2rem; }
+
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-8 { margin-bottom: 2rem; }
+
+.p-4 { padding: 1rem; }
+.p-6 { padding: 1.5rem; }
+.p-8 { padding: 2rem; }
+
+/* Text utilities */
+.text-muted { color: var(--muted); }
+.text-camel { color: var(--camel); }
+.text-center { text-align: center; }
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--sand);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--camel-soft);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--camel);
+}

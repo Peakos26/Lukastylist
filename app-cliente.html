@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luka - App da Cliente</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/cliente.css">
+  <style>
+    body {
+      background: var(--charcoal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    
+    .app-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+    
+    .app-header {
+      text-align: center;
+      color: var(--ivory);
+    }
+    
+    .app-header h1 {
+      color: var(--ivory);
+      margin-bottom: 0.5rem;
+    }
+    
+    .app-header p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    
+    .app-nav {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .app-nav a {
+      color: var(--camel-soft);
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s;
+    }
+    
+    .app-nav a:hover {
+      background: var(--camel-dark);
+      color: var(--ivory);
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <div class="app-header">
+      <h1>Luka - App da Cliente</h1>
+      <p>Experiência premium e personalizada</p>
+      <div class="app-nav">
+        <a href="index.html">Voltar</a>
+        <a href="portal.html">Portal da Consultora</a>
+      </div>
+    </div>
+    
+    <!-- Device Frame -->
+    <div class="device-frame">
+      <!-- Status Bar -->
+      <div class="status-bar">
+        <span>9:41</span>
+        <div class="flex gap-4">
+          <i data-lucide="signal" style="width: 16px; height: 16px;"></i>
+          <i data-lucide="wifi" style="width: 16px; height: 16px;"></i>
+          <i data-lucide="battery-full" style="width: 16px; height: 16px;"></i>
+        </div>
+      </div>
+      
+      <!-- Screen Root -->
+      <div id="screenRoot" class="screen-root">
+        <!-- Telas serão renderizadas via JS -->
+      </div>
+      
+      <!-- Bottom Navigation -->
+      <nav class="bottom-nav">
+        <button class="nav-item active" data-screen="hoje" onclick="nav('hoje')">
+          <i data-lucide="home"></i>
+          <span>Hoje</span>
+        </button>
+        <button class="nav-item" data-screen="armario" onclick="nav('armario')">
+          <i data-lucide="shirt"></i>
+          <span>Armário</span>
+        </button>
+        <button class="nav-item" data-screen="looks" onclick="nav('looks')">
+          <i data-lucide="sparkles"></i>
+          <span>Looks</span>
+        </button>
+        <button class="nav-item" data-screen="ia" onclick="nav('ia')">
+          <i data-lucide="bot"></i>
+          <span>IA</span>
+        </button>
+        <button class="nav-item" data-screen="perfil" onclick="nav('perfil')">
+          <i data-lucide="user"></i>
+          <span>Perfil</span>
+        </button>
+      </nav>
+      
+      <!-- FAB para adicionar look -->
+      <button class="fab" onclick="openLookBuilderSheet()">
+        <i data-lucide="plus"></i>
+      </button>
+      
+      <!-- Bottom Sheet -->
+      <div class="sheet-overlay">
+        <div class="sheet">
+          <div id="sheetContent"></div>
+        </div>
+      </div>
+      
+      <!-- Toast -->
+      <div class="toast"></div>
+    </div>
+  </div>
+  
+  <script src="js/cliente.js"></script>
+</body>
+</html>

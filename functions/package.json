@@ -1,0 +1,16 @@
+{
+  "name": "fmw-functions",
+  "private": true,
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "firebase-admin": "^12.3.1",
+    "firebase-functions": "^5.0.1",
+    "@anthropic-ai/sdk": "^0.31.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}

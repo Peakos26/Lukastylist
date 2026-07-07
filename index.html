@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luka - Consultoria de Imagem Inteligente</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div style="min-height: 100vh; display: flex; flex-direction: column;">
+    <!-- Header -->
+    <header style="background: var(--ivory); padding: 1.5rem 3rem; border-bottom: 1px solid var(--line);">
+      <div class="flex flex-between">
+        <div class="flex gap-4">
+          <div style="width: 48px; height: 48px; background: var(--camel); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-size: 1.5rem; color: var(--ivory); font-weight: 600;">
+            L
+          </div>
+          <div>
+            <h1 style="margin: 0; font-size: 1.5rem;">Luka</h1>
+            <p class="text-muted" style="font-size: 0.85rem; margin: 0;">Consultoria de Imagem Inteligente</p>
+          </div>
+        </div>
+        <nav class="flex gap-6">
+          <a href="#" style="color: var(--charcoal);">Sobre</a>
+          <a href="#" style="color: var(--charcoal);">Recursos</a>
+          <a href="#" style="color: var(--charcoal);">Contato</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 4rem 3rem; background: linear-gradient(135deg, var(--cream) 0%, var(--sand) 100%);">
+      <div style="max-width: 1200px; text-align: center;">
+        <h1 style="font-size: 3.5rem; margin-bottom: 1.5rem; color: var(--charcoal);">
+          Transforme sua Consultoria de Imagem
+        </h1>
+        <p style="font-size: 1.25rem; color: var(--ink); max-width: 600px; margin: 0 auto 3rem;">
+          Plataforma completa para Personal Stylists: ERP, IA e ferramentas de consultoria em um só lugar.
+        </p>
+        <div class="flex gap-4" style="justify-content: center;">
+          <a href="portal.html" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.1rem;">
+            <i data-lucide="briefcase"></i> Portal da Consultora
+          </a>
+          <a href="app-cliente.html" class="btn btn-outline" style="padding: 1rem 2rem; font-size: 1.1rem;">
+            <i data-lucide="smartphone"></i> App da Cliente
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ecossistemas -->
+    <section style="padding: 4rem 3rem; background: var(--ivory);">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 class="text-center mb-8" style="font-size: 2rem;">Nossos 3 Ecossistemas</h2>
+        <div class="grid grid-3">
+          <div class="card" style="text-align: center; cursor: pointer;" onclick="window.location.href='portal.html'">
+            <div style="width: 64px; height: 64px; background: var(--camel-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+              <i data-lucide="briefcase" style="width: 32px; height: 32px; color: var(--camel);"></i>
+            </div>
+            <h3>Portal da Consultora</h3>
+            <p class="text-muted mt-2">Centro do seu negócio: clientes, agenda, closets, looks e analytics.</p>
+            <span class="badge badge-info mt-4">Web</span>
+          </div>
+          
+          <div class="card" style="text-align: center; cursor: pointer;" onclick="window.location.href='app-cliente.html'">
+            <div style="width: 64px; height: 64px; background: var(--camel-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+              <i data-lucide="smartphone" style="width: 32px; height: 32px; color: var(--camel);"></i>
+            </div>
+            <h3>App da Cliente</h3>
+            <p class="text-muted mt-2">Experiência premium: closet inteligente, looks e IA personalizada.</p>
+            <span class="badge badge-gold mt-4">Mobile</span>
+          </div>
+          
+          <div class="card" style="text-align: center; cursor: pointer;" onclick="window.location.href='admin.html'">
+            <div style="width: 64px; height: 64px; background: var(--camel-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+              <i data-lucide="shield" style="width: 32px; height: 32px; color: var(--camel);"></i>
+            </div>
+            <h3>Painel Administrativo</h3>
+            <p class="text-muted mt-2">Gestão da plataforma: planos, usuários, IA e métricas globais.</p>
+            <span class="badge badge-success mt-4">Admin</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section style="padding: 4rem 3rem; background: var(--cream);">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 class="text-center mb-8" style="font-size: 2rem;">Recursos Principais</h2>
+        <div class="grid grid-4">
+          <div class="card">
+            <i data-lucide="palette" class="text-camel" style="width: 32px; height: 32px; margin-bottom: 1rem;"></i>
+            <h4>Coloração Pessoal</h4>
+            <p class="text-muted" style="font-size: 0.9rem;">Análise completa de paleta de cores.</p>
+          </div>
+          <div class="card">
+            <i data-lucide="ruler" class="text-camel" style="width: 32px; height: 32px; margin-bottom: 1rem;"></i>
+            <h4>Biotipo</h4>
+            <p class="text-muted" style="font-size: 0.9rem;">Análise de proporções corporais.</p>
+          </div>
+          <div class="card">
+            <i data-lucide="face" class="text-camel" style="width: 32px; height: 32px; margin-bottom: 1rem;"></i>
+            <h4>Visagismo</h4>
+            <p class="text-muted" style="font-size: 0.9rem;">Harmonização facial e cortes.</p>
+          </div>
+          <div class="card">
+            <i data-lucide="bot" class="text-camel" style="width: 32px; height: 32px; margin-bottom: 1rem;"></i>
+            <h4>IA Assistant</h4>
+            <p class="text-muted" style="font-size: 0.9rem;">Sugestões inteligentes de looks.</p>
+          </div>
+          <div class="card">
+            <i data-lucide="shirt" class="text-camel" style="width: 32px; height: 32px; margin-bottom: 1rem;"></i>
+            <h4>Closet Inteligente</h4>
+            <p class="text-muted" style="font-size: 0.9rem;">Digitalização e organização.</p>
+          </div>
+          <div class="card">
+            <i data-lucide="sparkles" class="text-camel" style="width: 32px; height: 32px; margin-bottom: 1rem;"></i>
+            <h4>Geração de Looks</h4>
+            <p class="text-muted" style="font-size: 0.9rem;">Combinações automáticas.</p>
+          </div>
+          <div class="card">
+            <i data-lucide="calendar" class="text-camel" style="width: 32px; height: 32px; margin-bottom: 1rem;"></i>
+            <h4>Agenda Integrada</h4>
+            <p class="text-muted" style="font-size: 0.9rem;">Gestão de consultorias.</p>
+          </div>
+          <div class="card">
+            <i data-lucide="bar-chart" class="text-camel" style="width: 32px; height: 32px; margin-bottom: 1rem;"></i>
+            <h4>Analytics</h4>
+            <p class="text-muted" style="font-size: 0.9rem;">Métricas e relatórios.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--charcoal); color: var(--ivory); padding: 3rem;">
+      <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+        <div class="flex gap-4" style="justify-content: center; margin-bottom: 2rem;">
+          <a href="portal.html" style="color: var(--camel-soft);">Portal</a>
+          <a href="app-cliente.html" style="color: var(--camel-soft);">App Cliente</a>
+          <a href="admin.html" style="color: var(--camel-soft);">Admin</a>
+        </div>
+        <p class="text-muted" style="color: var(--muted);">© 2026 Luka - Consultoria de Imagem Inteligente. Protótipo.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

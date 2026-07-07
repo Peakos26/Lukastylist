@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luka - Painel Administrativo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Estilos específicos do Admin */
+    .admin-layout {
+      display: flex;
+      min-height: 100vh;
+    }
+    
+    #adminSidebar {
+      width: 260px;
+      background: var(--ivory);
+      border-right: 1px solid var(--line);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      height: 100vh;
+      overflow-y: auto;
+    }
+    
+    .admin-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: none;
+      background: none;
+      border-radius: var(--radius-sm);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: left;
+    }
+    
+    .admin-nav-item:hover {
+      background: var(--sand);
+    }
+    
+    .admin-nav-item.active {
+      background: var(--camel-soft);
+      color: var(--camel-dark);
+      font-weight: 500;
+    }
+    
+    .admin-nav-item i {
+      width: 18px;
+      height: 18px;
+    }
+    
+    #adminMain {
+      flex: 1;
+      margin-left: 260px;
+      padding: 2rem 3rem;
+      background: var(--cream);
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside id="adminSidebar">
+      <div class="portal-brand mb-6">
+        <div class="portal-brand-logo">L</div>
+        <div>
+          <h3 style="margin: 0; font-size: 1.1rem;">Luka</h3>
+          <p class="text-muted" style="font-size: 0.75rem; margin: 0;">Painel Admin</p>
+        </div>
+      </div>
+      
+      <button onclick="window.location.href='index.html'" class="nav-item mb-4" style="background: var(--sand);">
+        <i data-lucide="layout-grid"></i>
+        <span>Voltar ao Hub</span>
+      </button>
+      
+      <!-- Navegação será renderizada via JS -->
+    </aside>
+    
+    <!-- Main Content -->
+    <main id="adminMain">
+      <div class="portal-header">
+        <div>
+          <h1 id="adminPageTitle">Dashboard</h1>
+          <p id="adminPageSubtitle" class="text-muted">Visão geral da plataforma</p>
+        </div>
+        <div class="portal-user">
+          <div class="text-right">
+            <p style="font-weight: 500;">Administrador</p>
+            <p class="text-muted" style="font-size: 0.8rem;">Super Admin</p>
+          </div>
+          <div class="portal-user-avatar">AD</div>
+        </div>
+      </div>
+      
+      <div id="adminMainContent">
+        <!-- Conteúdo será renderizado via JS -->
+      </div>
+    </main>
+  </div>
+  
+  <script>
+    // Helpers
+    const $ = (s, r = document) => r.querySelector(s);
+    const $$ = (s, r = document) => r.querySelectorAll(s);
+    
+    // Navegação do Admin
+    const ADMIN_NAV = [
+      { id: "overview", label: "Visão Geral", icon: "layout-dashboard" },
+      { id: "users", label: "Usuários", icon: "users" },
+      { id: "plans", label: "Planos", icon: "credit-card" },
+      { id: "ai", label: "Configuração IA", icon: "bot" },
+      { id: "analytics", label: "Analytics", icon: "bar-chart" },
+      { id: "integrations", label: "Integrações", icon: "plug" },
+      { id: "settings", label: "Configurações", icon: "settings" }
+    ];
+    
+    // Metadados
+    const META = {
+      overview: { title: "Visão Geral", subtitle: "Métricas globais da plataforma" },
+      users: { title: "Usuários", subtitle: "Gestão de consultoras e clientes" },
+      plans: { title: "Planos", subtitle: "Planos e assinaturas" },
+      ai: { title: "Configuração IA", subtitle: "Configuração dos modelos de IA" },
+      analytics: { title: "Analytics", subtitle: "Análise de dados e métricas" },
+      integrations: { title: "Integrações", subtitle: "APIs e serviços externos" },
+      settings: { title: "Configurações", subtitle: "Configurações gerais da plataforma" }
+    };
+    
+    // View stub
+    function stub() {
+      return `
+        <div class="card">
+          <div class="text-center p-8">
+            <i data-lucide="wrench" style="width: 48px; height: 48px; color: var(--muted);"></i>
+            <h3 class="mt-4">Em construção</h3>
+            <p class="text-muted">Esta funcionalidade estará disponível em breve.</p>
+          </div>
+        </div>
+      `;
+    }
+    
+    // Views do Admin
+    const VIEWS = {
+      overview: () => {
+        return `
+          <div class="grid grid-4 mb-6">
+            <div class="card">
+              <div class="flex flex-between mb-4">
+                <span class="text-muted">Consultoras</span>
+                <i data-lucide="users" class="text-camel"></i>
+              </div>
+              <h2>1,234</h2>
+              <p class="text-muted" style="font-size: 0.85rem;">+12% este mês</p>
+            </div>
+            <div class="card">
+              <div class="flex flex-between mb-4">
+                <span class="text-muted">Clientes</span>
+                <i data-lucide="user" class="text-camel"></i>
+              </div>
+              <h2>8,567</h2>
+              <p class="text-muted" style="font-size: 0.85rem;">+8% este mês</p>
+            </div>
+            <div class="card">
+              <div class="flex flex-between mb-4">
+                <span class="text-muted">Receita (MRR)</span>
+                <i data-lucide="dollar-sign" class="text-camel"></i>
+              </div>
+              <h2>R$ 89K</h2>
+              <p class="text-muted" style="font-size: 0.85rem;">+15% este mês</p>
+            </div>
+            <div class="card">
+              <div class="flex flex-between mb-4">
+                <span class="text-muted">Ativação IA</span>
+                <i data-lucide="bot" class="text-camel"></i>
+              </div>
+              <h2>234K</h2>
+              <p class="text-muted" style="font-size: 0.85rem;">+22% este mês</p>
+            </div>
+          </div>
+          
+          <div class="grid grid-2">
+            <div class="card">
+              <h3 class="mb-4">Crescimento de Usuários</h3>
+              <div style="height: 200px; background: var(--sand); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;">
+                <p class="text-muted">Gráfico de crescimento</p>
+              </div>
+            </div>
+            
+            <div class="card">
+              <h3 class="mb-4">Uso por Plano</h3>
+              <div style="height: 200px; background: var(--sand); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;">
+                <p class="text-muted">Gráfico de planos</p>
+              </div>
+            </div>
+          </div>
+        `;
+      },
+      
+      users: () => {
+        return `
+          <div class="flex flex-between mb-6">
+            <div class="flex gap-4">
+              <input type="text" placeholder="Buscar usuário..." style="width: 300px;">
+              <select style="width: 150px;">
+                <option>Todos</option>
+                <option>Consultoras</option>
+                <option>Clientes</option>
+              </select>
+            </div>
+            <button class="btn btn-primary">
+              <i data-lucide="plus"></i> Novo Usuário
+            </button>
+          </div>
+          
+          <div class="card">
+            <table style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="border-bottom: 2px solid var(--line); text-align: left;">
+                  <th style="padding: 1rem;">Usuário</th>
+                  <th style="padding: 1rem;">Tipo</th>
+                  <th style="padding: 1rem;">Plano</th>
+                  <th style="padding: 1rem;">Status</th>
+                  <th style="padding: 1rem;">Desde</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--line);">
+                  <td style="padding: 1rem;">
+                    <div class="flex gap-4">
+                      <div style="width: 36px; height: 36px; background: var(--camel-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.85rem;">JA</div>
+                      <div>
+                        <p style="font-weight: 500;">Jayne Almeida</p>
+                        <p class="text-muted" style="font-size: 0.8rem;">jayne@email.com</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td style="padding: 1rem;">Consultora</td>
+                  <td style="padding: 1rem;">Premium</td>
+                  <td style="padding: 1rem;"><span class="badge badge-success">Ativo</span></td>
+                  <td style="padding: 1rem;">01/03/2026</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--line);">
+                  <td style="padding: 1rem;">
+                    <div class="flex gap-4">
+                      <div style="width: 36px; height: 36px; background: var(--camel-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.85rem;">MS</div>
+                      <div>
+                        <p style="font-weight: 500;">Marina Silva</p>
+                        <p class="text-muted" style="font-size: 0.8rem;">marina@email.com</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td style="padding: 1rem;">Cliente</td>
+                  <td style="padding: 1rem;">Premium</td>
+                  <td style="padding: 1rem;"><span class="badge badge-success">Ativo</span></td>
+                  <td style="padding: 1rem;">15/03/2026</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        `;
+      },
+      
+      plans: stub,
+      ai: stub,
+      analytics: stub,
+      integrations: stub,
+      settings: stub
+    };
+    
+    // Roteador
+    function go(route) {
+      const meta = META[route] || { title: route, subtitle: "" };
+      
+      $('#adminPageTitle').textContent = meta.title;
+      $('#adminPageSubtitle').textContent = meta.subtitle;
+      
+      $$('.admin-nav-item').forEach(item => {
+        item.classList.remove('active');
+        if (item.dataset.route === route) {
+          item.classList.add('active');
+        }
+      });
+      
+      const viewFn = VIEWS[route] || stub;
+      $('#adminMainContent').innerHTML = viewFn();
+      
+      lucide.createIcons();
+    }
+    
+    // Renderizar sidebar
+    function renderSidebar() {
+      const sidebar = $('#adminSidebar');
+      const navContainer = document.createElement('div');
+      navContainer.innerHTML = ADMIN_NAV.map(item => `
+        <button class="admin-nav-item" data-route="${item.id}" onclick="go('${item.id}')">
+          <i data-lucide="${item.icon}"></i>
+          <span>${item.label}</span>
+        </button>
+      `).join('');
+      sidebar.appendChild(navContainer);
+      lucide.createIcons();
+    }
+    
+    // Inicialização
+    document.addEventListener('DOMContentLoaded', () => {
+      renderSidebar();
+      go('overview');
+    });
+  </script>
+</body>
+</html>
