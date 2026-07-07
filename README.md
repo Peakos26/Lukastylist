@@ -1,4 +1,8 @@
-# Luka - Consultoria de Imagem Inteligente
+# Lukastylist Repository
+
+Este repositório contém dois projetos:
+
+## 1. Luka - Consultoria de Imagem Inteligente
 
 Plataforma completa para Personal Stylists com 3 ecossistemas: Portal da Consultora, App da Cliente e Painel Administrativo.
 
@@ -41,3 +45,33 @@ Stack-alvo para produção:
 - Banco: PostgreSQL
 - IA: OpenAI/Claude/Gemini
 - Mobile: Flutter
+
+---
+
+## 2. Find My Wear (FMW)
+
+Aplicativo móvel de closet inteligente construído com Expo Router e React Native.
+
+### 🚀 Como Rodar
+
+```bash
+nvm use
+npm install
+npm run start
+```
+
+### 📦 Stack
+
+- **Framework:** Expo Router (React Native)
+- **Linguagem:** TypeScript
+- **Backend:** Firebase (Firestore, Storage, Functions)
+- **IA:** Claude API
+- **Estado:** Zustand stores
+
+### 📁 Estrutura
+
+- `app/` - Telas e navegação (Expo Router)
+- `components/` - Componentes reutilizáveis
+- `lib/` - Utilitários (Firebase, Claude, imagem)
+- `stores/` - Estado global (Zustand)
+- `functions/` - Cloud Functions para Firebase
